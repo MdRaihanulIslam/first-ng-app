@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,17 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'first-ng-app';
+
+  constructor(public authService: AuthService) {}
+
+  name: string = '';
+
+  ngOnInit(): void {
+    this.name = this.authService.getName();
+  }
+
+  updateName(): void {
+    this.authService.setName('Mahabub Rahman');
+    this.name = this.authService.getName();
+  }
 }
