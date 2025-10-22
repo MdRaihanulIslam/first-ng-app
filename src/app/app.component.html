@@ -2,4 +2,7 @@
   <h2>Welcome, {{ name }}!</h2>
   <button (click)="updateName()">Update Name</button>
 </div>
+<app-header></app-header>
+<app-home [name]="name"></app-home>
 
+<router-outlet></router-outlet>
